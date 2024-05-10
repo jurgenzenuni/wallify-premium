@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        .logo {
+            position: absolute;
+            top: 1px; /* Adjust as needed */
+            left: 1px; /* Adjust as needed */
+            margin-top: -9px;
+            margin-left: -14px;
+        }
+        
+        .logo img {
+            width: 100px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+        @media (max-width: 720px) {
+            .formsignup {
+            max-width: 400px;
+            }
+        }
+            </style>
+</head>
+<body class="body-signup">
+    
+    <header class="header">
+        <div class="logo logomargins">
+            <a href="home.php">
+                <img src="./images/wlogo4.png" alt="Logo">
+            </a>
+        </div>
+    </header>
+
+    <form class="formsignup" action="../backend/signup.php" method="post">
+        <label for="oldemail" class="oldemail"> 
+            <p class="class-1"> Create your Account</p>
+            <p class="class-2"> Tell us about yourself. </p>
+        </label>
+        <label for="firstname"></label>
+        <input type="text" id="firstname" name="firstname" required placeholder="First Name" class="password2">
+        <label for="lastname"></label>
+        <input type="text" id="lastname" name="lastname" required placeholder="Last Name" class="password2">
+
+        <label for="username"></label>
+        <input type="text" id="username" name="username" required placeholder="Username" class="password2">
+
+        <label for="signupemail"></label>
+        <input type="email" id="email" name="email" required placeholder="Email" class="password2">
+
+        <label for="signupPassword"></label>
+        <input type="password" id="signupPassword" name="signupPassword" required placeholder="Password (Min. 6 Characters)" class="password2">
+
+        <input type="submit" value="Sign Up" class="button">
+        <a href="login2.php" style="text-decoration: none;"> <p class="fyp"> Sign in Instead </p></a>
+        
+    </form>
+    <script>
+        document.querySelector('.formsignup').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            
+            // Submit the form
+            let form = this;
+            let formData = new FormData(form);
+            fetch(form.action, {
+                method: form.method,
+                body: formData
+            })
+            .then(response => {
+                if (!response.redirected) {
+                    // Response not redirected, handle error message
+                    response.text().then(errorMessage => {
+                        console.error('Error:', errorMessage);
+                        // Display error message to the user
+                        alert(errorMessage);
+                    });
+                } else {
+                    // Redirect to signup-success.html if signup is successful
+                    window.location.href = "signup-success.html";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

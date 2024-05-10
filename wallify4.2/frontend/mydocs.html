@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lobster&family=Pacifico&family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <title>Documents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 20px;
+        }
+
+        .container {
+            width: 1000px;
+            margin: 20px auto;
+            padding: 60px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .document-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .document-list li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .document-list li a {
+            width: 240px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: black;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .document-list li a:hover {
+            background-color: #55bcc9;
+            transition: 0.3s;
+        }
+        .gb-btn, h2{
+            display: flex;  
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Project Documents</h2>
+        <ul class="document-list">
+            <li><a href="http://54.160.221.123/mydocuments/Wallify-490.pdf" target="_blank">Planning Documents</a>  : Last Updated: 2024-03-01 17:18 </li> 
+            <li><a href="http://54.160.221.123/mydocuments/wallify_usecase.png" target="_blank"> Use Case Diagram </a> : Last Updated: 2024-03-06 00:46</li> 
+            <li><a href="http://54.160.221.123/mydocuments/wallify_DFD.png" target="_blank"> DFD </a> : Last Updated: 2024-03-13 00:27</li> 
+            <li><a href="http://54.160.221.123/mydocuments/wallify_ERD.png" target="_blank"> ERD </a> : Last Updated: 2024-03-26 22:02</li>
+            <li class="gb-btn"><a href="aboutpg.php" target="_blank"> Go Back </a></li> 
+            <!-- Add more documents as needed -->
+        </ul>
+    </div>
+</body>
+</html>

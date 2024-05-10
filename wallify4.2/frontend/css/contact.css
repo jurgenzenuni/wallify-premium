@@ -1,0 +1,105 @@
+/* Basic styles */
+body {
+    background-color: whitesmoke;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+}
+
+form {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    /* margin-top: 200px; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center !important;  */
+    align-items: center;
+}
+
+.title2 {
+    font-family: "Lobster", sans-serif;
+    font-weight: 600;
+    margin-top: 180px;
+    color: #000000;
+    text-align: center;
+    font-size: 55px;
+    margin-bottom: 30px;
+}
+input[type="text"],
+select {
+    width: 100%;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: none;
+    background-color: #e6e6e6;
+    color: #000000;
+    /* margin: -25px; */
+    margin-bottom: 18px;
+    box-sizing: border-box;
+    
+}
+input[type="email"],
+select {
+    width: 100%;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: none;
+    background-color: #e6e6e6;
+    color: #000000;
+    /* margin: -25px; */
+    margin-bottom: 18px;
+    box-sizing: border-box;
+    
+}
+textarea {
+    width: 100%;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: none;
+    background-color: #e6e6e6;
+    color: #000000;
+    /* margin: -25px; */
+    margin-bottom: 18px;
+    box-sizing: border-box;
+}
+.buttonsubmit {
+    width: 100%;
+    padding: 13px;
+    background-color: #55bcc9;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    /* margin-top: -15px; */
+}
+.buttonsubmit:hover {
+    background-color: black;
+    transition: 0.2s;
+}
+.contact-back {
+    font-family: Arial, sans-serif;
+    margin-top: 8px;
+    font-size: 16px;
+    color: #7a7a7ad2;
+}
+.contact-back:hover {
+    color: #000000;
+}
+.logo {
+    position: absolute;
+    top: 1px; /* Adjust as needed */
+    left: 1px; /* Adjust as needed */
+    margin-top: -9px;
+    margin-left: -14px;
+}
+
+.logo img {
+    width: 100px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}

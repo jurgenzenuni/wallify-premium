@@ -1,0 +1,91 @@
+old gallery.php version that posts to save_image.php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .image {
+            margin: 10px;
+        }
+        .image img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .image p {
+            display: none; /* Hide description */
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+
+    <!-- Search form -->
+    <form method="GET" action="">
+        <label for="search">Search Images:</label>
+        <input type="text" id="search" name="search" placeholder="Enter keywords">
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="gallery">
+        <?php
+        // Connect to MySQL database
+        $servername = "localhost";
+        $username = "user1";
+        $password = "Password618";
+        $dbname = "wallify";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        // Fetch images based on search query
+        $searchQuery = isset($_GET['search']) ? $_GET['search'] : '';
+        $sql = "SELECT * FROM free_img WHERE description LIKE '%$searchQuery%'";
+        $result = $conn->query($sql);
+
+        // Display images
+        $limit = 100; // Limit to 100
+        $count = 0;
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<div class='image'>";
+                echo "<img src='uploads/images/{$row['file_name']}' alt=''>";
+                echo "<p>{$row['description']}</p>";
+                echo "<form method='POST' action='save_image.php'>";
+                echo "<input type='hidden' name='image_id' value='{$row['id']}'>";
+                echo "<button type='submit' name='save_image'>Save</button>";
+                echo "</form>";
+                echo "</div>";
+                $count++;
+                if ($count >= $limit) break; // Stop after 100 img
+            }
+        } else {
+            // If no search query, display default set of nature images
+            $defaultImagesDirectory = 'uploads/nature_images';
+            $defaultImages = scandir($defaultImagesDirectory);
+            foreach ($defaultImages as $image) {
+                if (!in_array($image, array(".", ".."))) {
+                    echo "<div class='image'>";
+                    echo "<img src='$defaultImagesDirectory/$image' alt=''>";
+                    echo "</div>";
+                    $count++;
+                    if ($count >= $limit) break; // Stop after 100 img
+                }
+            }
+        }
+
+        $conn->close();
+        ?>
+    </div>
+</body>
+</html>
