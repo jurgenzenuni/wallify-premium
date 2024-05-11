@@ -465,7 +465,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                             <?php if (!empty($image)):?>
 								<div class="image-container">
 									<img src="<?php echo $image;?>" id="generated-image" />
-                                    <button class="upload-btn absolute bottom-1 left-1" type="button" onclick="copyImageLink('http://3.91.149.75/wallify4.1/<?php echo $image;?>')">Copy Link</button>
+                                    <button class="upload-btn absolute bottom-1 left-1" type="button" onclick="copyImageLink('http://localhost/wallify4.2/<?php echo $image;?>')">Copy Link</button>
 									<!-- <button class="upload-btn absolute bottom-1 right-25" id="upload-btn">Upload</button> -->
                                     <a href="<?php echo $image;?>" download="generated_image.png" class="upload-btn absolute bottom-1 right-1" id="upload-btn">Download</a>
                                     
